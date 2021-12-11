@@ -1,8 +1,11 @@
+import ExpenseItem from "./components/ExpenseItem";
+
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <p>Lets get started!</p>
+        <h2>Lets get started!</h2>
+        <ExpenseItem /> {/* or <ExpenseItem></ExpenseItem> */}
       </header>
     </div>
   );
