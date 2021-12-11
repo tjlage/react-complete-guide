@@ -1,11 +1,12 @@
+import "./ExpenseItem.css";
 function ExpenseItem() {
   return (
     //   Only 1 root(div) element in return statement
-    <div>
+    <div className="expense-item">
       <div>March 28th 2021</div>
-      <div>
+      <div className="expense-item__description">
         <h2>Car Insurance</h2>
-        <div>$294.67</div>
+        <div className="expense-item__price">$294.67</div>
       </div>
     </div>
   );
