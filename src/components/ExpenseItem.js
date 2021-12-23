@@ -1,10 +1,17 @@
 import "./ExpenseItem.css";
 function ExpenseItem(props) {
-  console.log(props.date.toISOString())
+  const month = props.date.toLocaleString('en-US', { month: 'long' });
+  const day = props.date.toLocaleString('en-US', { day: '2-digit' });
+  const year = props.date.getFullYear();
+  //Above logic could be placed directly in JSX but this is preferred
   return (
     //   Only 1 root(div) element in return statement
     <div className="expense-item">
-      <div>{props.date.toISOString()}</div>
+      <div>
+        <div>{month}</div>
+        <div>{day}</div>
+        <div>{year}</div>
+      </div>
       <div className="expense-item__description">
         <h2>{props.title}</h2>
         <div className="expense-item__price">${props.amount}</div>
