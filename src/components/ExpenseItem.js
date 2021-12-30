@@ -1,16 +1,18 @@
 import "./ExpenseItem.css";
 import ExpenseDate from "./ExpenseDate";
+import Card from "./Card";
+
 function ExpenseItem(props) {
   //Removed date logic and put it into its own separate component
   return (
     //   Only 1 root(div) element in return statement
-    <div className="expense-item">
+    <Card className="expense-item">
       <ExpenseDate date={props.date}/>
       <div className="expense-item__description">
         <h2>{props.title}</h2>
         <div className="expense-item__price">${props.amount}</div>
       </div>
-    </div>
+    </Card>
   );
 }
 // or
