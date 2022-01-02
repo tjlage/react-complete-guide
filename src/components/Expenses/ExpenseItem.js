@@ -2,8 +2,11 @@ import "./ExpenseItem.css";
 import ExpenseDate from "./ExpenseDate";
 import Card from "../UI/Card";
 
-function ExpenseItem(props) {
+const ExpenseItem = (props) => {
   //Removed date logic and put it into its own separate component
+  const clickHandler = () =>{
+    console.log("Clicked");
+  };
   return (
     //   Only 1 root(div) element in return statement
     <Card className="expense-item">
@@ -12,6 +15,7 @@ function ExpenseItem(props) {
         <h2>{props.title}</h2>
         <div className="expense-item__price">${props.amount}</div>
       </div>
+      <button onClick={clickHandler}>Change Title</button>
     </Card>
   );
 }
