@@ -8,9 +8,17 @@ const NewExpense = (props) => {
     };
     props.onAddExpense(expenseData);
   };
+
+  const CancelExpenseDataHandler = () => {
+    props.onCancelExpense();
+  };
+
   return (
     <div className="new-expense">
-      <ExpenseForm onSaveExpenseData={saveExpenseDataHandler} />
+      <ExpenseForm
+        onSaveExpenseData={saveExpenseDataHandler}
+        onCancelNewExpense={CancelExpenseDataHandler}
+      />
     </div>
   );
 };

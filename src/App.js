@@ -1,6 +1,7 @@
 import Expenses from "./components/Expenses/Expenses";
 import NewExpense from "./components/NewExpense/NewExpense";
 import { useState } from "react";
+import AddNewExpense from "./components/Expenses/AddNewExpense";
 
 const DUMMY_EXPENSES = [
   {
@@ -25,16 +26,39 @@ const DUMMY_EXPENSES = [
 
 const App = () => {
   const [expenses, setExpenses] = useState(DUMMY_EXPENSES);
+  const [addExpense, setAddExpense] = useState(false);
 
   const addExpenseHandler = (expense) => {
     setExpenses((prevExpenses) => {
       return [expense, ...prevExpenses];
     });
   };
+
+  const cancelAddExpenseHandler = () => {
+    setAddExpense(false);
+  };
+
+  const enableAddExpenseHandler = () => {
+    setAddExpense(true);
+  };
+
+  let newExpenseContent = (
+    <AddNewExpense AddNewExpenseHandle={enableAddExpenseHandler} />
+  );
+
+  if (addExpense) {
+    newExpenseContent = (
+      <NewExpense
+        onAddExpense={addExpenseHandler}
+        onCancelExpense={cancelAddExpenseHandler}
+      />
+    );
+  }
+
   return (
     <div className="App">
       <header className="App-header">
-        <NewExpense onAddExpense={addExpenseHandler} />
+        {newExpenseContent}
         <Expenses expenses={expenses} />
       </header>
     </div>
