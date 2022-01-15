@@ -14,12 +14,12 @@ const Expenses = (props) => {
     return expense.date.getFullYear().toString() === selectedYear;
   });
   return (
-    <div>
+    <li>
       <Card className="expenses">
         <ExpensesFilter filter={filteredYear} selected={selectedYear} />
         <ExpensesList filteredExpenses={filteredExpenses} />
       </Card>
-    </div>
+    </li>
   );
 };
 export default Expenses;
